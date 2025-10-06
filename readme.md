@@ -1,4 +1,4 @@
-# Template README - Rendu de Cours
+# Rendu EDD Groupe 7 
 
 
 ## Utilisation : 
@@ -8,6 +8,7 @@ Lancer
 docker compose up -d
 ```
 Accéder à l'interface PhpMyAdmin sur  localhost:8081
+
 
 
 ## Présentation
