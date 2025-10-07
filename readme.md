@@ -15,25 +15,9 @@ Accéder à l'interface PhpMyAdmin sur  localhost:8081
 
 Ce document présente 5 KPIs (Key Performance Indicators) calculés à partir des données du projet. Chaque KPI est décrit et accompagné de la requête SQL utilisée pour l'obtenir.
 
----
 
-### 1. Inscriptions Mensuelles
 
-**Description :** Nombre d'inscriptions de clients par mois.
-
-**Requête SQL :**
-```sql
-DROP TABLE IF EXISTS inscriptions_mensuelles;
-CREATE TABLE inscriptions_mensuelles AS
-SELECT LEFT(signup_date, 7) AS mois, COUNT(*) AS inscriptions
-FROM dim_customers
-GROUP BY mois
-ORDER BY mois;
-```
-
----
-
-### 2. Chiffre d'Affaires Mensuel
+### 1. Chiffre d'Affaires Mensuel
 
 **Description :** Somme totale des ventes réalisées chaque mois.
 
@@ -49,7 +33,7 @@ ORDER BY mois;
 
 ---
 
-### 3. Top 5 Produits Vendus
+### 2. Top 5 Produits Vendus
 
 **Description :** Les 5 produits ayant généré le plus de ventes.
 
@@ -68,7 +52,7 @@ ORDER BY mois;
 
 ---
 
-### 4. Panier Moyen
+### 3. Panier Moyen
 
 **Description :** Montant moyen dépensé par commande.
 
@@ -81,7 +65,7 @@ ORDER BY mois;
 
 ---
 
-### 5. Taux de Fidélisation
+### 4. Taux de Fidélisation
 
 **Description :** Pourcentage de clients ayant passé au moins une commande.
 
@@ -94,7 +78,7 @@ FROM dim_orders o;
 ```
 
 ---
-### 6. Commandes par mois & par catégories
+### 5. Commandes par mois & par catégories
 ```SQL
 CREATE OR REPLACE VIEW vue_commandes_par_mois_et_categorie AS
 SELECT 
