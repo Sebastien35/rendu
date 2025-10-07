@@ -94,3 +94,17 @@ FROM dim_orders o;
 ```
 
 ---
+### 6. Commandes par mois & par catégories
+```SQL
+CREATE OR REPLACE VIEW vue_commandes_par_mois_et_categorie AS
+SELECT 
+  LEFT(dim_orders.order_date, 7) AS mois,
+  dim_products.category AS category,
+  COUNT(*) AS total_commandes
+FROM dim_orders
+JOIN order_items ON dim_orders.id_order = order_items.id_order
+JOIN dim_products ON dim_products.id_product = order_items.id_product
+GROUP BY mois, category
+ORDER BY mois;
+````
+
